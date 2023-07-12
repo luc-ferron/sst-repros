@@ -6,7 +6,8 @@
     "dev": "sst bind next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "sst bind vitest run"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.369.0",
@@ -22,6 +23,7 @@
   "devDependencies": {
     "sst": "^2.20.1",
     "aws-cdk-lib": "2.84.0",
-    "constructs": "10.1.156"
+    "constructs": "10.1.156",
+    "vitest": "^0.32.4"
   }
 }
