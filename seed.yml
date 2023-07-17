@@ -9,10 +9,10 @@ before_build:
 
 before_deploy:
   - echo "Before deploy"
+  - npm test
 
 after_deploy:
-  - echo "After deploy, will now run tests"
-  - npm install sst --save-exact && npm test
+  - echo "After deploy"
 
 before_remove:
   - echo "Before deploy"
