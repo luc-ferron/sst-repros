@@ -12,7 +12,7 @@ before_deploy:
 
 after_deploy:
   - echo "After deploy, will now run tests"
-  - npm test
+  - npm install sst --save-exact && npm test
 
 before_remove:
   - echo "Before deploy"
