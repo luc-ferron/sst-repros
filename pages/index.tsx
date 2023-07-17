@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { Inter } from "next/font/google";
+import { Bucket } from "sst/node/bucket";
 import styles from "@/styles/Home.module.css";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
@@ -7,7 +8,14 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getServerSideProps() {
-  return { props: { "url": "http://google.com" } };
+  const command = new PutObjectCommand({
+    ACL: "public-read",
+    Key: crypto.randomUUID(),
+    Bucket: Bucket.public.bucketName,
+  });
+  const url = await getSignedUrl(new S3Client({}), command);
+
+  return { props: { url } };
 }
 
 export default function Home({ url }: { url: string }) {

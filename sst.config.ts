@@ -10,14 +10,15 @@ export default {
   },
   stacks(app) {
     app.stack(function Site({ stack }) {
+      const bucket = new Bucket(stack, "public");
       const site = new NextjsSite(stack, "site", {
-        bind: [],
+        bind: [bucket],
       });
       new Cron(stack, "cron", {
         schedule: "rate(1 day)",
         job: {
           function: {
-            bind: [],
+            bind: [bucket],
             handler: "functions/delete.handler",
           },
         },
