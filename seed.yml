@@ -13,6 +13,7 @@ before_deploy:
 
 after_deploy:
   - echo "After deploy"
+  - npx sst bind vitest run
 
 before_remove:
   - echo "Before deploy"
