@@ -9,7 +9,7 @@ before_build:
 
 before_deploy:
   - echo "Before deploy"
-  - npx sst dev && npx sst bind vitest run
+  - npx sst bind vitest run
 
 after_deploy:
   - echo "After deploy"
