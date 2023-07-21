@@ -11,8 +11,8 @@ before_deploy:
   - echo "Before deploy"
 
 after_deploy:
-  - echo "After deploy"
-  - npm install --silent && npx sst bind --stage sst-repro vitest run --verbose
+  - echo "After deploy, running unit tests"
+  - npm install --silent && npx sst bind --stage $SEED_STAGE_NAME vitest run --verbose
 
 before_remove:
   - echo "Before deploy"
