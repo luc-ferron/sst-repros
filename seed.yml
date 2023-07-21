@@ -12,7 +12,7 @@ before_deploy:
 
 after_deploy:
   - echo "After deploy"
-  - npm install --silent && npx sst bind --stage dev run test
+  - npm install --silent && npx sst bind --stage dev run test --verbose
 
 before_remove:
   - echo "Before deploy"
