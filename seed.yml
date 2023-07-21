@@ -12,7 +12,9 @@ before_deploy:
 
 after_deploy:
   - echo "After deploy"
-  - npm install && npm test
+  - echo "Stage env var: "
+  - echo $STAGE
+  - npm install && npx sst bind --stage $STAGE run test
 
 before_remove:
   - echo "Before deploy"
