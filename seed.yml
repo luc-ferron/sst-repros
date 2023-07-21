@@ -12,7 +12,7 @@ before_deploy:
 
 after_deploy:
   - echo "After deploy"
-  - npm install && npx sst bind --stage dev run test
+  - npm install && npx sst bind --stage $SEED_STAGE_NAME run test
 
 before_remove:
   - echo "Before deploy"
